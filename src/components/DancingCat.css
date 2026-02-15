@@ -1,0 +1,139 @@
+.dancing-cat-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 400px;
+}
+
+.cat-wrapper {
+  position: relative;
+  z-index: 2;
+  will-change: transform;
+}
+
+.cat-wrapper.dance-bounce {
+  animation: bounce-dance 1.2s ease-in-out infinite;
+}
+
+.cat-wrapper.dance-sway {
+  animation: sway 1.2s ease-in-out infinite;
+}
+
+.cat-wrapper.dance-spin {
+  animation: spin-dance 1.2s linear infinite;
+}
+
+.cat-image {
+  width: 180px;
+  height: auto;
+  animation: pulse-glow 2s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cat-shadow {
+  width: 120px;
+  height: 16px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 70%);
+  border-radius: 50%;
+  margin: -8px auto 0;
+  animation: bounce-dance 1.2s ease-in-out infinite reverse;
+}
+
+.dance-floor {
+  width: 300px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-green), var(--neon-pink));
+  background-size: 300% 100%;
+  border-radius: 3px;
+  margin-top: 0.5rem;
+  animation: disco-floor 3s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+}
+
+/* Music Notes */
+.music-notes {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.note {
+  position: absolute;
+  font-size: 1.8rem;
+  color: var(--neon-pink);
+  animation: float-note 2s ease-out infinite;
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.note-1 { left: 10%; animation-delay: 0s; color: var(--neon-pink); }
+.note-2 { left: 80%; animation-delay: 0.5s; color: var(--neon-blue); }
+.note-3 { left: 30%; animation-delay: 1s; color: var(--neon-green); }
+.note-4 { left: 65%; animation-delay: 1.5s; color: var(--accent); }
+
+/* Sparkles */
+.sparkles {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 240px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.2rem;
+  color: #ffd700;
+  animation: sparkle 1.5s ease-in-out infinite;
+  text-shadow: 0 0 8px #ffd700;
+}
+
+.sparkle-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.sparkle-2 { top: 40%; right: 5%; animation-delay: 0.5s; }
+.sparkle-3 { bottom: 20%; left: 15%; animation-delay: 1s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dancing-cat-container {
+    min-height: 300px;
+    padding: 1.5rem;
+  }
+
+  .cat-image {
+    width: 140px;
+  }
+
+  .dance-floor {
+    width: 220px;
+  }
+
+  .note {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dancing-cat-container {
+    min-height: 250px;
+    padding: 1rem;
+  }
+
+  .cat-image {
+    width: 120px;
+  }
+
+  .dance-floor {
+    width: 180px;
+  }
+}
